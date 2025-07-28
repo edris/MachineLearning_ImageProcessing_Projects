@@ -1,0 +1,32 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CSC411: Machine Learning and Data Mining 
+%     Tutorial 4 (Febuary 9th): Neural Network Toolbox - XOR problem
+% TA: Rui Yan
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clear all;
+close all;
+
+%Input Data P
+P = [1 1 0 0; 1 0 1 0];
+%Target Data T
+T = [0 1 1 0];
+
+%Construct the Neural Network
+%net = newff(PR,[S1..Sn],{TF1 ...TFn},BTF, BLF, PF);
+net=newff([0 1; 0 1], [4 1],{'tansig' 'purelin'},'trainlm');
+ 
+%Update the parameters for the training 
+net.trainParam.epochs=10000;
+net.trainParam.show=5;
+
+%Train the neural network
+net=train(net,P,T);
+ 
+%Simulate the neural network
+Y=sim(net,P);
+
+%Plot the output
+plot3(P(1,:),P(2,:),T,'+',P(1,:),P(2,:),Y,'o');
+hold on;
+plot3(P(1,:),P(2,:),Y-T,'b');
+

@@ -1,0 +1,13 @@
+#pragma once
+// this collection of functions is just some syntactic sugar for pushing more than one thing to a vector at once. unfortunately, it could not
+// be done with varargs. this file defines cases for 2 - 10 arguments. example use: vector_multi_push<int>(someInts, 1, 2, 3, 4, 5);
+template <class T> void vector_multi_push(vector<T>& v, const T& x1, const T& x2)																												{ v.push_back(x1); v.push_back(x2); }
+template <class T> void vector_multi_push(vector<T>& v, const T& x1, const T& x2, const T& x3)																									{ v.push_back(x1); v.push_back(x2); v.push_back(x3); }
+template <class T> void vector_multi_push(vector<T>& v, const T& x1, const T& x2, const T& x3, const T& x4)																						{ v.push_back(x1); v.push_back(x2); v.push_back(x3); v.push_back(x4); }
+template <class T> void vector_multi_push(vector<T>& v, const T& x1, const T& x2, const T& x3, const T& x4, const T& x5)																		{ v.push_back(x1); v.push_back(x2); v.push_back(x3); v.push_back(x4); v.push_back(x5); }
+template <class T> void vector_multi_push(vector<T>& v, const T& x1, const T& x2, const T& x3, const T& x4, const T& x5, const T& x6)															{ v.push_back(x1); v.push_back(x2); v.push_back(x3); v.push_back(x4); v.push_back(x5); v.push_back(x6); }
+template <class T> void vector_multi_push(vector<T>& v, const T& x1, const T& x2, const T& x3, const T& x4, const T& x5, const T& x6, const T& x7)												{ v.push_back(x1); v.push_back(x2); v.push_back(x3); v.push_back(x4); v.push_back(x5); v.push_back(x6); v.push_back(x7); }
+template <class T> void vector_multi_push(vector<T>& v, const T& x1, const T& x2, const T& x3, const T& x4, const T& x5, const T& x6, const T& x7, const T& x8)									{ v.push_back(x1); v.push_back(x2); v.push_back(x3); v.push_back(x4); v.push_back(x5); v.push_back(x6); v.push_back(x7); v.push_back(x8); }
+template <class T> void vector_multi_push(vector<T>& v, const T& x1, const T& x2, const T& x3, const T& x4, const T& x5, const T& x6, const T& x7, const T& x8, const T& x9)					{ v.push_back(x1); v.push_back(x2); v.push_back(x3); v.push_back(x4); v.push_back(x5); v.push_back(x6); v.push_back(x7); v.push_back(x8); v.push_back(x9); }
+template <class T> void vector_multi_push(vector<T>& v, const T& x1, const T& x2, const T& x3, const T& x4, const T& x5, const T& x6, const T& x7, const T& x8, const T& x9, const T& x10)		{ v.push_back(x1); v.push_back(x2); v.push_back(x3); v.push_back(x4); v.push_back(x5); v.push_back(x6); v.push_back(x7); v.push_back(x8); v.push_back(x9); v.push_back(x10); }
+	

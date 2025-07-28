@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CSC411: Machine Learning and Data Mining 
+%     Tutorial 4 (Febuary 9th): Neural Network Toolbox 
+% TA: Rui Yan
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+clear all
+
+%Step 1: generate training dataset
+x=0:.05:2;
+y=humps(x);
+
+P=x;
+T=y;
+
+plot(P,T,'+');
+
+%Step 2: define the structure of the network
+%- choose the network structure
+%- choose activation functions
+%- initialize network paramters: weights and bias
+
+%net = newff(PR,[S1 S2....SNL],{TF1 TF2....TFNL},BTF)
+%PR: min and max values for R input elements
+%Si: size of the ith layer
+%TFi: avtivation(or transfer function) of the ith layer, default is
+%'transig'
+%BTF: network training function, default is 'trainlm'
+net = newff([0 2], [10,1],{'tansig', 'purelin'},'trainlm');
+
+%Step 3: Define parameters associated with the training algorithms
+%-error goal, maximum number of epochs(iterations)
+
+net.trainParam.epochs = 1500;
+net.trainParam.goal =1e-5;
+net.trainParam.show=5;
+
+%Step 4: Call the training algorithm
+%net=train(net,P,T)
+%net: initial MLPN (multiple perceptron network)
+%P: input vector
+%T: output vector
+net=train(net,P, T);
+
+pause(5);
+%Step 5: Simulate the output of the neural network with the measured input
+%data and Compare with the validaiton data
+
+%a = sim(net, P);
+%net: final MLPN
+%P: input vector
+a=sim(net,P);
+ 
+plot(P,a-P,'-',P,T,'+', P, a,'o');
